@@ -1,10 +1,10 @@
 # Li-Ion_BatteryProtector_TasmotaSocket
 #  Rationale
-Some people say that Li-Ion cells are relatively more stressed by maximum 100% charges and deep discharges. Circuits should be already designed with this in mind, however this makes stopping before maximum charging explicit. It should encourage more frequent charges that stop before 100% capacity.
+Some people say that Li-Ion cells are relatively more stressed by maximum 100% charges and deep discharges. Charging circuits should be already designed with this in mind, however this makes stopping before maximum charging more explicit. It should encourage more frequent charges that stop before 100% capacity. 
 This Berry script, running on a Tasmota ESP32 mains socket with power monitoring, is designed to terminate the final stages of Li-Ion battery charger phases as they 'Top Off' a battery on re-charging. In theory, this should improve the life of an eBike battery.
-It assumes you prioritise overall battery life over maximum ride duration on next ride and can charge easily via an ESP32 Tasmota controlled mains socket. It possibly might improve fire safety? That aspect has certainly not been tested, as I have only used official matched pairs of chargers and unmodified original batteries. So don't rely on this app!
+It assumes you prioritise overall battery life over maximum ride duration on your next ride and can charge easily via an ESP32 Tasmota controlled mains socket. It possibly might improve fire safety? That aspect has certainly not been tested, as I have only used official matched pairs of chargers and unmodified original batteries. So don't rely on this app in non-standard contexts!
 #  Method
-The script monitors power draw and simply shuts off when the mains power intake draw starts to drop through a pre-defined threshold, having assessed the high plateau level.
+The script monitors power draw and simply shuts off when the mains power intake draw starts to drop through a pre-defined % of maximum threshold, having assessed the high plateau level.
 #  Reporting
 It uses MQTT to publish progress and gives progress output on the Tasmota console too.
 #  How to use
